@@ -1,0 +1,4 @@
+# build objects
+build/dep
+build/obj
+build/map
