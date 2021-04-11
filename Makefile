@@ -1,4 +1,5 @@
-TARGET		:= PacketAnalyzer
+export TARGET	:= CryptoGraphy
+export TOPDIR	:= $(PWD)
 
 all:
 	@$(MAKE) -C $(TARGET) --no-print-directory
@@ -11,4 +12,7 @@ distclean:
 
 run:
 	@$(MAKE) -C $(TARGET) run --no-print-directory
+	
+info:
+	@$(MAKE) -C $(TARGET) info --no-print-directory
 	

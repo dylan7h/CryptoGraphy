@@ -1,13 +1,13 @@
 #============================================================
 # Path of Build Product
 #============================================================
-BIN_DIR		:= ../build
-OBJ_DIR		:= $(BIN_DIR)/obj/$(TARGET)
-DEF_DIR		:= $(BIN_DIR)/dep/$(TARGET)
-EXE_DIR		:= $(BIN_DIR)/exe
-LIB_DIR		:= $(BIN_DIR)/lib
-MAP_DIR		:= $(BIN_DIR)/map
-ASM_DIR		:= $(BIN_DIR)/asm
+BINDIR		:= $(TOPDIR)/build
+OBJ_DIR		:= $(BINDIR)/obj/$(TARGET)
+DEF_DIR		:= $(BINDIR)/dep/$(TARGET)
+EXE_DIR		:= $(BINDIR)/exe
+LIB_DIR		:= $(BINDIR)/lib
+MAP_DIR		:= $(BINDIR)/map
+ASM_DIR		:= $(BINDIR)/asm
 
 
 #============================================================
@@ -20,6 +20,7 @@ INC_PATH	:= Include
 # Path of Source lists
 #============================================================
 CSRCS		:= Source/main.c
+CSRCS		:= Source/bignum_conv.c
 
 
 #============================================================

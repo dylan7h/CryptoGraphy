@@ -24,8 +24,9 @@ endif
 #============================================================
 # Include Build Environments
 #============================================================
-include BuildEnv/toolchain.mk
-include BuildEnv/path.mk
+include $(TOPDIR)/.config/toolchain/llvm.mk
+include $(TOPDIR)/.config/config.mk
+include $(CURDIR)/path.mk
 
 
 #============================================================
@@ -101,4 +102,10 @@ $(OBJ_DIR)/%.o: %.cpp
 	@mkdir -p $(dir $@)
 	@printf "%-10s $<\n" "CXX" 
 	$(V)$(CXX) $(INCS) $(CXXFLAGS) -c $< -o $@ -MMD -MF $(DEF_DIR)/$*.d
+
+
+#============================================================
+# Debug Information
+#============================================================
+info:
 
