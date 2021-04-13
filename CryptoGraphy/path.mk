@@ -20,7 +20,7 @@ INC_PATH	:= Include
 # Path of Source lists
 #============================================================
 CSRCS		:= Source/main.c
-CSRCS		:= Source/bignum_conv.c
+CSRCS		+= Source/bignum_conv.c
 
 
 #============================================================

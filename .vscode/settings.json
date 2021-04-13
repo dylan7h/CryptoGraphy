@@ -1,6 +1,3 @@
 {
-    "BUILD_TARGET": "CryptoGraphy",
-    "files.associations": {
-        "functional": "cpp"
-    }
+    "BUILD_TARGET": "CryptoGraphy"
 }
