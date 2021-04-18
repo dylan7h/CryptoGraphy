@@ -3,6 +3,7 @@
  *                                      INCLUDE
  ***************************************************************************************************
  */
+#include "bignum_util.h"
 #include "bignum_conv.h"
 
 
@@ -20,17 +21,27 @@ static char gASCBuff[8192];
  */
 static int32_t BN_strlen(char* str);
 static int32_t BN_Asc2Digit(char asc);
-static void BN_Clear(BIGNUM_t* pBN);
+
 
 /*
  **************************************************************************************************** 
  *                                      EXTERN DEFINITION
  ***************************************************************************************************
  */
-
 int32_t BN_Asc2Bignum(BIGNUM_t* pBN, char* str)
 {
+    int32_t ret = 0;
 
+    if((str[0] == '0') && (str[1] == 'x'))
+    {
+        ret = BN_Hex2Bignum(pBN, &str[2]);
+    }
+    else
+    {
+        ret = -1;
+    }
+
+    return ret;
 }
 
 int32_t BN_Hex2Bignum(BIGNUM_t* pBN, char* str)
@@ -73,7 +84,7 @@ int32_t BN_Hex2Bignum(BIGNUM_t* pBN, char* str)
 
 int32_t BN_Dec2Bignum(BIGNUM_t* pBN, char* str)
 {
-
+    return -1;
 }
 
 char* BN_Bignum2Hex(BIGNUM_t* pBN)
@@ -101,9 +112,9 @@ char* BN_Bignum2Hex(BIGNUM_t* pBN)
     return gASCBuff;
 }
 
-char* BN_Bignum2Dex(BIGNUM_t* pBN)
+char* BN_Bignum2Dec(BIGNUM_t* pBN)
 {
-
+    return (char*)0;
 }
 
 
@@ -146,16 +157,6 @@ static int32_t BN_Asc2Digit(char asc)
     }
 
     return ret;
-}
-
-static void BN_Clear(BIGNUM_t* pBN)
-{
-    int32_t i;
-
-    for(i = 0; i < pBN->capacity; i += 1U)
-    {
-        pBN->pWord[i] = 0U;
-    }
 }
 
 

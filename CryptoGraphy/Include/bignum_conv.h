@@ -9,7 +9,7 @@ extern int32_t BN_Hex2Bignum(BIGNUM_t* pBN, char* str);
 extern int32_t BN_Dec2Bignum(BIGNUM_t* pBN, char* str);
 
 extern char* BN_Bignum2Hex(BIGNUM_t* pBN);
-extern char* BN_Bignum2Dex(BIGNUM_t* pBN);
+extern char* BN_Bignum2Dec(BIGNUM_t* pBN);
 
 
 #endif  /* !__BIGNUM_CONV__H__ */
