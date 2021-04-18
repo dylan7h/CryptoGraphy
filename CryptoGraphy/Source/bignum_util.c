@@ -18,25 +18,25 @@
  *                                      EXTERN DEFINITION
  ***************************************************************************************************
  */
-int32_t BN_ucmp(BIGNUM_t* a, BIGNUM_t * b)
+int32_t BN_ucmp(__IN BIGNUM_t* op1, __IN BIGNUM_t * op2)
 {
     int32_t ret;
 
-    if(a->length > b->length)
+    if(op1->length > op2->length)
     {
         ret = 1;
     }
-    else if(a->length < b->length)
+    else if(op1->length < op2->length)
     {
         ret = -1;
     }
     else
     {
-        if(a->pWord[a->length] > b->pWord[b->length])
+        if(op1->pWord[op1->length] > op2->pWord[op2->length])
         {
             ret = 1;
         }
-        else if(a->pWord[a->length] < b->pWord[b->length])
+        else if(op1->pWord[op1->length] < op2->pWord[op2->length])
         {
             ret = -1;
         }
@@ -49,7 +49,7 @@ int32_t BN_ucmp(BIGNUM_t* a, BIGNUM_t * b)
     return ret;
 }
 
-void BN_Clear(BIGNUM_t* pBN)
+void BN_Clear(__INOUT BIGNUM_t* pBN)
 {
     int32_t i;
 

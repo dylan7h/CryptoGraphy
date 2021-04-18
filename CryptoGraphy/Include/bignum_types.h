@@ -3,6 +3,18 @@
 
 #include <stdint.h>
 
+#ifndef __IN
+#define __IN
+#endif  /* !__IN */
+
+#ifndef __OUT
+#define __OUT
+#endif  /* !__OUT */
+
+#ifndef __INOUT
+#define __INOUT
+#endif  /* !__INOUT */
+
 typedef struct bignumber_st
 {
     uint32_t*   pWord;

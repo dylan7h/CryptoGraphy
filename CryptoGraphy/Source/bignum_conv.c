@@ -19,8 +19,8 @@ static char gASCBuff[8192];
  *                                      LOCAL DECLARATION
  ***************************************************************************************************
  */
-static int32_t BN_strlen(char* str);
-static int32_t BN_Asc2Digit(char asc);
+static int32_t BN_strlen(__IN char* str);
+static int32_t BN_Asc2Digit(__IN char asc);
 
 
 /*
@@ -28,7 +28,33 @@ static int32_t BN_Asc2Digit(char asc);
  *                                      EXTERN DEFINITION
  ***************************************************************************************************
  */
-int32_t BN_Asc2Bignum(BIGNUM_t* pBN, char* str)
+int32_t BN_CreateInstance(__OUT BIGNUM_t* pBN, __IN uint32_t* pBuff, __IN int32_t capacity)
+{
+    int32_t ret = 0;
+    int32_t i;
+
+    if((pBuff != (uint32_t*)0) && (capacity != 0) && (pBN != (BIGNUM_t*)0))
+    {
+        pBN->capacity = capacity;
+        pBN->pWord = pBuff;
+
+        for(i = 0; i < capacity; i += 1)
+        {
+            pBuff[i] = 0U;
+        }
+
+        pBN->length     = 0;
+        pBN->negative   = 0;
+    }
+    else
+    {
+        ret = -1;
+    }
+
+    return ret;
+}
+
+int32_t BN_Asc2Bignum(__OUT BIGNUM_t* pBN, __IN char* str)
 {
     int32_t ret = 0;
 
@@ -44,7 +70,7 @@ int32_t BN_Asc2Bignum(BIGNUM_t* pBN, char* str)
     return ret;
 }
 
-int32_t BN_Hex2Bignum(BIGNUM_t* pBN, char* str)
+int32_t BN_Hex2Bignum(__OUT BIGNUM_t* pBN, __IN char* str)
 {
     int32_t ret = 0;
     int32_t length;
@@ -82,12 +108,12 @@ int32_t BN_Hex2Bignum(BIGNUM_t* pBN, char* str)
     return ret;
 }
 
-int32_t BN_Dec2Bignum(BIGNUM_t* pBN, char* str)
+int32_t BN_Dec2Bignum(__OUT BIGNUM_t* pBN, __IN char* str)
 {
     return -1;
 }
 
-char* BN_Bignum2Hex(BIGNUM_t* pBN)
+char* BN_Bignum2Hex(__IN BIGNUM_t* pBN)
 {
     int32_t i, j, k;
     char temp;
@@ -112,7 +138,7 @@ char* BN_Bignum2Hex(BIGNUM_t* pBN)
     return gASCBuff;
 }
 
-char* BN_Bignum2Dec(BIGNUM_t* pBN)
+char* BN_Bignum2Dec(__IN BIGNUM_t* pBN)
 {
     return (char*)0;
 }
@@ -123,7 +149,7 @@ char* BN_Bignum2Dec(BIGNUM_t* pBN)
  *                                      LOCAL DEFINITION
  ***************************************************************************************************
  */
-static int32_t BN_strlen(char* str)
+static int32_t BN_strlen(__IN char* str)
 {
     volatile int32_t ret;
 
@@ -135,7 +161,7 @@ static int32_t BN_strlen(char* str)
     return (ret - 1);
 }
 
-static int32_t BN_Asc2Digit(char asc)
+static int32_t BN_Asc2Digit(__IN char asc)
 {
     int32_t ret;
 

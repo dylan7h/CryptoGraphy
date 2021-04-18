@@ -13,8 +13,8 @@
  *                                      LOCAL DECLARATION
  ***************************************************************************************************
  */
-static int32_t BN_uadd(BIGNUM_t* result, BIGNUM_t* op1, BIGNUM_t* op2);
-static int32_t BN_usub(BIGNUM_t* result, BIGNUM_t* op1, BIGNUM_t* op2);
+static int32_t BN_uadd(__OUT BIGNUM_t* result, __IN BIGNUM_t* op1, __IN BIGNUM_t* op2);
+static int32_t BN_usub(__OUT BIGNUM_t* result, __IN BIGNUM_t* op1, __IN BIGNUM_t* op2);
 
 
 /*
@@ -22,7 +22,7 @@ static int32_t BN_usub(BIGNUM_t* result, BIGNUM_t* op1, BIGNUM_t* op2);
  *                                      EXTERN DEFINITION
  ***************************************************************************************************
  */
-int32_t BN_Add(BIGNUM_t* result, BIGNUM_t* op1, BIGNUM_t* op2)
+int32_t BN_Add(__OUT BIGNUM_t* result, __IN BIGNUM_t* op1, __IN BIGNUM_t* op2)
 {
     int32_t ret, cmp_ret;
 
@@ -64,7 +64,7 @@ int32_t BN_Add(BIGNUM_t* result, BIGNUM_t* op1, BIGNUM_t* op2)
     return ret;
 }
 
-int32_t BN_Sub(BIGNUM_t* result, BIGNUM_t* op1, BIGNUM_t* op2)
+int32_t BN_Sub(__OUT BIGNUM_t* result, __IN BIGNUM_t* op1, __IN BIGNUM_t* op2)
 {
     int32_t ret, cmp_ret;
 
@@ -116,7 +116,7 @@ int32_t BN_Sub(BIGNUM_t* result, BIGNUM_t* op1, BIGNUM_t* op2)
  *                                      LOCAL DEFINITION
  ***************************************************************************************************
  */
-int32_t BN_uadd(BIGNUM_t* result, BIGNUM_t* op1, BIGNUM_t* op2)
+int32_t BN_uadd(__OUT BIGNUM_t* result, __IN BIGNUM_t* op1, __IN BIGNUM_t* op2)
 {
     int32_t i;
     uint32_t carry = 0U;
@@ -147,7 +147,7 @@ int32_t BN_uadd(BIGNUM_t* result, BIGNUM_t* op1, BIGNUM_t* op2)
     return 0;
 }
 
-int32_t BN_usub(BIGNUM_t* result, BIGNUM_t* op1, BIGNUM_t* op2)
+int32_t BN_usub(__OUT BIGNUM_t* result, __IN BIGNUM_t* op1, __IN BIGNUM_t* op2)
 {
     int32_t i;
     uint32_t carry = 0U;
