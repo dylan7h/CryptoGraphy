@@ -23,6 +23,7 @@ CSRCS		:= Source/main.c
 CSRCS		+= Source/bignum_conv.c
 CSRCS		+= Source/bignum_add.c
 CSRCS		+= Source/bignum_util.c
+CSRCS		+= Source/bignum_mul.c
 
 
 #============================================================
