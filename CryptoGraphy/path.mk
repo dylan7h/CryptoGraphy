@@ -20,6 +20,7 @@ INC_PATH	:= Include
 # Path of Source lists
 #============================================================
 CSRCS		:= Source/main.c
+CSRCS		+= Source/bignum_debug.c
 CSRCS		+= Source/bignum_conv.c
 CSRCS		+= Source/bignum_add.c
 CSRCS		+= Source/bignum_util.c
