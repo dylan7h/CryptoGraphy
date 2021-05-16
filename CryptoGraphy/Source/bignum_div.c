@@ -56,8 +56,13 @@ int32_t BN_Div(__OUT BIGNUM_t* result, __INOUT BIGNUM_t* temp, __IN BIGNUM_t* op
                     pDenominator->length    : 6
                     DiffWordIndex           : 3
                                                           ┌──────────────────────────────────────────────────────────────────
-                    0xcb551d12_9734d12b_c4526089_6ac470dd │0xc16dc643_ac04cb97_efa9154a_9c2ce981_7ce02436_3cacd424_3498c117
+                     0xb551d12_9734d12b_c4526089_6ac470dd │0xc16dc643_ac04cb97_efa9154a_9c2ce981_7ce02436_3cacd424_3498c117
             
+                loop 1)
+                    0xc16dc643 ÷ 0xb551d12 = 0x00000011
+                                                                                      0x00000011_00000000_00000000_00000000
+                                                          ┌──────────────────────────────────────────────────────────────────
+                     0xb551d12_9734d12b_c4526089_6ac470dd │0xc16dc643_ac04cb97_efa9154a_9c2ce981_7ce02436_3cacd424_3498c117
              */
 
             DiffWordIndex = pDenominator->length - pNumerator->length;
