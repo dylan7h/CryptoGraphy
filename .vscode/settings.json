@@ -1,3 +1,6 @@
 {
-    "BUILD_TARGET": "CryptoGraphy"
+    "BUILD_TARGET": "CryptoGraphy",
+    "files.associations": {
+        "bignum_util.h": "c"
+    }
 }
